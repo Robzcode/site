@@ -1,5 +1,7 @@
+/*Importer la police d'écriture Share Tech Mono*/
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+/*Paramètrer les fondamentales de la page (police/padding/margin)*/
 *{
     margin: 0;
     padding: 0;
@@ -29,7 +31,7 @@
 
 nav{
     display: flex;
-    width: 84%;
+    width: 94%;
     margin: auto;
     padding: 20px 0;
     align-items: center;
@@ -37,6 +39,7 @@ nav{
 }
 
 nav ul li{
+    
     display: inline-block;
     list-style: none;
     margin: 10px 20px;
@@ -108,20 +111,24 @@ nav ul li a:hover{
     bottom: 0;
     transform: translateX(-50%);
     transition: bottom 1s, left 1s;
+    z-index: 1;
 }
 
 
 .images:hover .person{
     left: 45%;
+    
 }
 
 .case{
+    display: block;
     transition: 0.5s;
 }
 .case:hover{
     transition: 0.5s;
     transform: scale(1.06);
 }
+
 
 span{
     color: #00FFC2;
@@ -178,3 +185,115 @@ span{
 .hello a:hover::before {
 	left: 100%;
 }
+
+
+.caroussel_diapo input{
+
+    position: absolute;
+    left: -999px;
+    
+    
+}
+
+.caroussel_diapo{
+
+    position: relative;
+    
+    margin: 0 auto;
+    
+    
+}
+
+.contenu_carou {
+
+    width: 500px;
+    height: 332px;
+    perspective: 4000px;
+    
+    
+}
+
+.caroussel{
+
+    transform-style: preserve-3d;
+    position: relative;
+    width: 500px;
+    height: 332px;
+    transition: 1s;
+    
+    
+        
+}
+
+.caroussel img {
+	
+    position: absolute;
+    top: 0;
+    left: 0;
+    outline: 1px solid transparent;
+    backface-visibility: hidden;
+    transition: 1s;
+    margin-left: 10px;
+   
+}
+
+.caroussel img{
+
+    filter: blur(3px);
+    opacity: .8;
+}
+
+
+.caroussel img:nth-child(1){transform:translate3d(0,0,540px) scale(.8)}
+.caroussel img:nth-child(2){transform:rotateY(45deg) translateZ(540px) scale(.8)}
+
+
+/* Si jamais je veux ajouter des compétences
+
+.caroussel img:nth-child(3){transform:rotateY(90deg) translateZ(540px) scale(.8)}
+.caroussel img:nth-child(4){transform:rotateY(135deg) translateZ(540px) scale(.8)}
+.caroussel img:nth-child(5){transform:rotateY(180deg) translateZ(540px) scale(.8)}
+.caroussel img:nth-child(6){transform:rotateY(225deg) translateZ(540px) scale(.8)}
+.caroussel img:nth-child(7){transform:rotateY(270deg) translateZ(540px) scale(.8)}
+.caroussel img:nth-child(8){transform:rotateY(315deg) translateZ(540px) scale(.8)}
+
+*/
+
+.caroussel_diapo input[type=radio] + label {
+	
+    cursor:pointer;
+    background:#fff;
+    display:inline-block;
+    width:20px;
+    border-radius:50%;
+    height:20px;
+   
+   
+        
+}
+
+.caroussel_diapo input[type=radio]:checked + label{
+
+    background:#00FFC2;
+}
+
+.caroussel_diapo label{
+
+    background:hsl(203,77%,61%);
+    
+}
+
+.caroussel_diapo input[name="rotation"]:checked ~ .contenu_carou .caroussel img:nth-child(n){
+	
+    filter: drop-shadow(12px 12px 7px hsla(0,0%,0%,.5));
+        
+}
+
+.caroussel_diapo #carou_un:checked ~ .contenu_carou .caroussel{transform:translateZ(-540px)}
+.caroussel_diapo #carou_deux:checked ~ .contenu_carou .caroussel{transform:translateZ(-540px) rotateY(-45deg)}
+/*.caroussel_diapo #carou_trois:checked ~ .contenu_carou .caroussel{transform:translateZ(-540px) rotateY(-90deg)}*/
+
+
+.caroussel_diapo #carou_un:checked ~ .contenu_carou .caroussel img:nth-child(1){transform:translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_deux:checked ~ .contenu_carou .caroussel img:nth-child(2){transform:rotateY(45deg) translateZ(540px) scale(1);opacity:1}
+/*.caroussel_diapo #carou_trois:checked ~ .contenu_carou .caroussel img:nth-child(3){transform:rotateY(90deg) translateZ(540px) scale(1);opacity:1}*/
