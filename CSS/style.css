@@ -8,7 +8,7 @@
 }
 
 .body{
-    background-color: #282828;
+    background-color: #0d0d0d;
 }
 
 .hero{
@@ -115,6 +115,13 @@ nav ul li a:hover{
     left: 45%;
 }
 
+.case{
+    transition: 0.5s;
+}
+.case:hover{
+    transition: 0.5s;
+    transform: scale(1.06);
+}
 
 span{
     color: #00FFC2;
